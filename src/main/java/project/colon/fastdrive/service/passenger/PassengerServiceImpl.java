@@ -99,7 +99,7 @@ public class PassengerServiceImpl implements PassengerService{
     public Passenger updatePassenger(Long passengerId, JsonPatch updatePayload) {
         ObjectMapper mapper = new ObjectMapper();
         Passenger foundPassenger = getPassengerById(passengerId);
-        AppUser passengerDetail = foundPassenger.getUser();
+//        AppUser passengerDetail = foundPassenger.getUser();
         //Convert Passenger to Node
         JsonNode node = mapper.convertValue(foundPassenger, JsonNode.class);
         try{

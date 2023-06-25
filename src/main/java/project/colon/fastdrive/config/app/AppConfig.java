@@ -39,6 +39,8 @@ public class AppConfig {
     @Value("${google.distance.url}")
     private String googleMailUrl;
 
+
+
     @Bean
     public Cloudinary cloudinary(){
         return new Cloudinary(

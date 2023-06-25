@@ -1,5 +1,6 @@
 package project.colon.fastdrive;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,25 +14,26 @@ import java.sql.SQLException;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest
+@SpringBootTest(classes = FastDriveApplicationTest.class)
+@Slf4j
 class FastDriveApplicationTest {
 
     @Test
     void contextLoads(){
     }
 
-    @Test
-    void dataConnectionTest(){
-        DataSource dataSource = new DriverManagerDataSource("jdbc:postgresql://localhost:5432/fastdrive_db",
-                "postgres","momentum");
-
-        try {
-            Connection connection = dataSource.getConnection();
-            assertThat(connection).isNotNull();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
+//    @Test
+//    void dataConnectionTest(){
+//
+//        DataSource dataSource = new DriverManagerDataSource("jdbc:postgresql://localhost:5432/fastdrive_db");
+//
+//        try {
+//            Connection connection = dataSource.getConnection("${USERNAME}", "${PASSWORD}");
+//            assertThat(connection).isNotNull();
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 
 
 

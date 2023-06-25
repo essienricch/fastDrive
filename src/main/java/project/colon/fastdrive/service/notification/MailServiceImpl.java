@@ -19,10 +19,12 @@ public class MailServiceImpl implements MailService{
     private final MailConfig mailConfig;
     @Override
     public String sendHtmlMail(EmailNotificationRequest request) {
+        log.info("started send html mail");
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setContentType(MediaType.APPLICATION_JSON);
         httpHeaders.set("api-key", mailConfig.getApiKey());
+        log.info("done setting http headers");
         HttpEntity <EmailNotificationRequest> requestHttpEntity =
                 new HttpEntity<>(request, httpHeaders);
         ResponseEntity <String> response = restTemplate.postForEntity(mailConfig.getMailUrl(), requestHttpEntity, String.class);

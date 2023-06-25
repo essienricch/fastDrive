@@ -49,7 +49,8 @@ public class FastDriveAuthenticationFilter extends UsernamePasswordAuthenticatio
             Authentication authenticationResult =
                     authenticationManager.authenticate(authentication);
             //TODO: 4. store authenticated authentication object in the security context
-            if (authenticationResult!= null) return getAuthentication(authenticationResult);
+            if (authenticationResult!= null)
+                return getAuthentication(authenticationResult);
         } catch (IOException e) {
             throw new BusinessLogicException(e.getMessage());
         }throw new BusinessLogicException("cheei!!!");
